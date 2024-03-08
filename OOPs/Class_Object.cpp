@@ -3,10 +3,22 @@ using namespace std;
 
 class Student {
     //instance variable / data members / class members
-    public:
+    private:
     int rollNo;
     string name;
     float fees;
+
+    public:
+    void scan() {
+        cout << "Enter your Roll No: ";
+        cin >> rollNo;
+
+        cout << "Enter your Name: ";
+        cin >> name;
+
+        cout << "Enter your Fees: ";
+        cin >> fees;
+    }
 
     //methods
     void display() {
@@ -20,15 +32,7 @@ class Student {
 int main() {
     Student s;
 
-    cout << "Enter your Roll No: ";
-    cin >> s.rollNo;
-
-    cout << "Enter your Name: ";
-    cin >> s.name;
-
-    cout << "Enter your Fees: ";
-    cin >> s.fees;
-
+    s.scan();
     s.display(); 
 
     return 0;
