@@ -41,10 +41,11 @@ They are special methods that invokes/called automatically when the object is cr
 
 The main purpose of using the constructor is to initialize the class members.
 
-two types of constructors:
+three types of constructors:
     1 -> default constructor
-    1 -> parameterized constructor
-
+    2 -> parameterized constructor
+    3 -> copy constructor
+    
 Tasks:
 
 1. Create a class representing a car with member variables for make, model, and year. Write a default constructor that initializes these variables to default values.
