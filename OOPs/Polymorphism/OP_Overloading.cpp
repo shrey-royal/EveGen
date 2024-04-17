@@ -26,6 +26,14 @@ public:
         return StringArithmetic(str + obj.str);
     }
 
+    StringArithmetic operator*(int num) {
+        string s = str;
+        for (int i = 0; i < num-1; i++) {
+            str += s;
+        }
+        return StringArithmetic(str);
+    }
+
     void display() {
         cout << str << endl;
     }
@@ -47,13 +55,9 @@ int main() {
     (s1+s2).display();
     cout << endl;
 
-    // cout << "\nSubtraction: ";
-    // (s1 - StringArithmetic("l")).display();   // Removing 'l' from "Hello"
-    // cout << endl;
-
-    // cout << "\nMultiplication: ";
-    // (s1*3).display();   // "Hello" repeated 3 times
-    // cout << endl;
+    cout << "\nMultiplication: ";
+    (s1*3).display();   // "Hello" repeated 3 times
+    cout << endl;
 
     return 0;
 }
@@ -66,5 +70,4 @@ OPs that can't be overloaded:
     - member selector (.)
     - member pointer selector (*)
     - ternary operator (?:)
-
 */
