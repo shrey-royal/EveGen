@@ -100,7 +100,7 @@ Tasks - Level 0:
 4. Problem Statement: Create a program to analyze product reviews. Implement a function that calculates the average rating for a product based on a list of review scores.
 
    Sample Test Case:
-   - Input: [4, 5, 3, 2, 4]
+   - Input: "4, 5, 3, 2, 4"
    - Output: Average rating: 3.6
 
 5. Problem Statement: Develop a program for a word game. Implement a function that checks if a player's guess matches the hidden word, considering both the characters and their positions.
@@ -115,11 +115,7 @@ Tasks - Level 0:
    - Input: "Shape of You - Ed Sheeran"
    - Output: Artist: Ed Sheeran
 
-7. Problem Statement: Implement a program for a spell checker tool. Write a function that suggests corrections for misspelled words in a given text based on a dictionary of valid words.
-
-   Sample Test Case:
-   - Input: "Thes are somee misspeled wrds."
-   - Output: Suggestions: "These are some misspelled words."
+7. !ERROR 404 - Program not found
 
 8. Problem Statement: Develop a program to process customer orders for an online store. Implement a function that extracts the product name and quantity from a given order string.
 
