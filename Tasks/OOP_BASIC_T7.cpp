@@ -30,11 +30,26 @@ private:
                 wordLength++;
             } else {
                 if(wordStart) {
-                    //to be continued...
+                    words[numWords] = new char[wordLength + 1];
+                    strncpy(words[numWords], wordStart, wordLength);
+                    words[numWords][wordLength] = '\0';
+                    numWords++;
+                    wordStart = nullptr;
+                    wordLength = 0;
                 }
             }
         }
-        
+
+        if(wordStart) {
+            words[numWords] = new char[wordLength + 1];
+            strncpy(words[numWords], wordStart, wordLength);
+            words[numWords][wordLength] = '\0';
+            numWords++;
+        }
+
+        for (int i = 0; i < numWords; i++) {
+            frequencies[i] = 0;
+        }
     }
 
 public:
@@ -89,8 +104,18 @@ public:
 
 
 int main() {
-    // 
+    const char* text = "This is a test. This test is only a test.";
+    WordFrequencyCounter counter(text);
 
+    counter.countWordFrequencies();
+    counter.displayFrequencies();
 
+    const char* mostFrequentWord = counter.getMostFrequentWord();
+    if(mostFrequentWord) {
+        cout << "Most frequent word: " << mostFrequentWord << endl;
+    } else {
+        cout << "No words found in the text." << endl;
+    }
+    
     return 0;
 }
