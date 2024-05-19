@@ -7,22 +7,22 @@ int main() {
 
     cout << "Before Exception" << endl;
     // 1
-    try {
-        int d=120;
-        if(d == 0) {
-            throw invalid_argument("divide by zero.");
-        } else if (d >= 100) {
-            throw out_of_range("naa thay");
-        }
-        cout << 12/d << endl;
-    } catch (const out_of_range& e) {
-        cout << e.what() << '\n';
-        // throw runtime_error("abcd");
-    } catch (const invalid_argument& e) {
-        cout << e.what() << endl;
-    } catch(...) {
-        cout << "Default Exception..." << endl;
-    }
+    // try {
+    //     int d=120;
+    //     if(d == 0) {
+    //         throw invalid_argument("divide by zero.");
+    //     } else if (d >= 100) {
+    //         throw out_of_range("naa thay");
+    //     }
+    //     cout << 12/d << endl;
+    // } catch (const out_of_range& e) {
+    //     cout << e.what() << '\n';
+    //     // throw runtime_error("abcd");
+    // } catch (const invalid_argument& e) {
+    //     cout << e.what() << endl;
+    // } catch(...) {
+    //     cout << "Default Exception..." << endl;
+    // }
 
     // 2
     // try {
