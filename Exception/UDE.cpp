@@ -49,9 +49,14 @@ By incorporating exception handling with well-defined custom exceptions, you can
 #include<string>
 using namespace std;
 
-class SensorDataException : public runtime_error {
+class SensorDataException : public exception {
+    const char* message;
 public:
-    SensorDataException(string message) : runtime_error(message) {}
+    SensorDataException(const char* message) : message(message) {}
+
+    const char* what() const throw() {
+        return message;
+    }
 };
 
 class InvalidDataFormatException : public runtime_error {
@@ -75,8 +80,11 @@ VitalSigns readSensorData(int sensorId) {
         throw SensorDataException("Sensor 1 malfunction detected!");
     } else if(sensorId == 2) {
         throw InvalidDataFormatException("Invalid data format received from sensor 2.");
-    } else {
+    } else if(sensorId == 3) {
         return {80, 120.5, 95};
+    } else {
+        cout << "Enter valid choice!!!" << endl;
+        return {-1, -1, -1};
     }
 }
 
@@ -84,7 +92,7 @@ bool sendDataToMonitor(VitalSigns& data) {
     if(data.heartRate > 100) {
         throw NetworkException("Network communication interrupted.");
     } else {
-        cout << "Vital signs data sent to monitor successfully." << endl;
+        if(data.heartRate != -1 && data.bloodPressure != -1 && data.oxygenSaturation != -1) cout << "Vital signs data sent to monitor successfully." << endl;
         return true;
     }
 }
@@ -106,10 +114,12 @@ int main() {
             vitalSigns = readSensorData(sensorId);
             sendDataToMonitor(vitalSigns);
 
-            cout << "Vital signs for sensor " << sensorId << ": " << endl;
-            cout << "Heart rate: " << vitalSigns.heartRate << " bpm" << endl;
-            cout << "Blood Pressure: " << vitalSigns.bloodPressure << " mmHg" << endl;
-            cout << "Oxygen Saturation: " << vitalSigns.oxygenSaturation << " %" << endl;
+            if(vitalSigns.heartRate != -1 && vitalSigns.bloodPressure != -1 && vitalSigns.oxygenSaturation != -1) {
+                cout << "Vital signs for sensor " << sensorId << ": " << endl;
+                cout << "Heart rate: " << vitalSigns.heartRate << " bpm" << endl;
+                cout << "Blood Pressure: " << vitalSigns.bloodPressure << " mmHg" << endl;
+                cout << "Oxygen Saturation: " << vitalSigns.oxygenSaturation << " %" << endl;
+            }
         } catch (SensorDataException& e) {
             cout << "Error: " << e.what() << endl;
             cout << "** Sensor " << sensorId << " malfunction. **" << endl;
