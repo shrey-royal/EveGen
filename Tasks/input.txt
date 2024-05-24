@@ -1,0 +1,12 @@
+Hello,
+
+Please contact us at support@example.com for further assistance. If you have any questions, you can also reach out to our team lead at lead@company.org .
+
+Thank you,
+The Support Team
+
+P.S. Our alternate email is contact@example.net for non-urgent queries. Visit our website at www.example.com for more information.
+
+--
+John Doe
+john.doe@personal-email.com
