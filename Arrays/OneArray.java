@@ -47,15 +47,19 @@ public class OneArray {
 		}
 		*/
 		
-		String[] arr = new String[5];
+		String[] arr = {"Element 1", "Element 2", "Element 3"};
+		
+		/*
 		Scanner sc = new Scanner(System.in);
 		for(int i=0; i<arr.length; i++) {
 			System.out.print("Enter a string: ");
 			arr[i] = sc.nextLine();
 		}
+		*/
 		
 		for(int i=0; i<arr.length; i++) {
 			System.out.print(arr[i] + ", ");
 		}
+		
 	}
 }
