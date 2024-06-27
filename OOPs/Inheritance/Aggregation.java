@@ -1,121 +1,125 @@
-/*
-Problem Statement
-Title: Analysis of Monthly Sales Data for a Food Delivery Service
+class Address {
+    private String city;
+    private String state;
 
-Context:
-A food delivery service operates in multiple cities and offers a variety of food items. The service tracks sales data including the city, food item, quantity sold, and revenue generated. The company wants to analyze this data to gain insights into their sales performance.
-
-Objectives:
-
-Calculate Total Sales: Determine the total quantity sold and total revenue generated for each food item across all cities.
-City-wise Sales Analysis: Find out the total quantity sold and total revenue generated for each food item in each city.
-Monthly Trends: Analyze monthly sales trends for each food item.
-
-Requirements:
-
-Use Java to process and analyze the sales data.
-Implement data aggregation to summarize the information as required.
-Input Data:
-A list of sales records where each record contains:
-
-    - City (String)
-    - Food Item (String)
-    - Quantity Sold (int)
-    - Revenue Generated (double)
-    - Sale Date (Date)
-
-
-Output Data:
-
-Total quantity sold and total revenue for each food item.
-Total quantity sold and total revenue for each food item in each city.
-Monthly sales trends for each food item.
-
-
-*/
-
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-
-class SalesRecord {
-    String city;
-    String foodItem;
-    int quantitySold;
-    double revenueGenerated;
-    Date saleDate;
-
-    public SalesRecord(String city, String foodItem, int quantitySold, double revenueGenerated, Date saleDate) {
+    Address(String city, String state) {
         this.city = city;
-        this.foodItem = foodItem;
-        this.quantitySold = quantitySold;
-        this.revenueGenerated = revenueGenerated;
-        this.saleDate = saleDate;
+        this.state = state;
+    }
+
+    void getAddress() {
+        System.out.println("City: " + city);
+        System.out.println("State: " + state);
     }
 }
 
-class SalesAnalysis {
-    SalesRecord[] salesData; //Aggregation
+class Employee {
+    private int id;
+    private String name;
+    private Address address;    //Aggregation
+    private double salary;
+    private String designation;
 
-    public SalesAnalysis(SalesRecord[] salesData) {
-        this.salesData = salesData;
+    public Employee(int id, String name, Address address, double salary, String designation) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.salary = salary;
+        this.designation = designation;
     }
 
-    public void aggregateTotalSalesByFoodItem() {
-        System.out.println("Total Sales by Food Item: ");
-
-        String[] uniqueFoodItems = getUniqueFoodItems();
-        for (String foodItem : uniqueFoodItems) {
-            int totalQuantity = 0;
-            double totalRevenue = 0.0;
-
-            for(SalesRecord record : salesData) {
-                if(record.foodItem.equals(foodItem)) {
-                    totalQuantity += record.quantitySold;
-                    totalRevenue += record.revenueGenerated;
-                }
-            }
-
-            System.out.println(foodItem + " -> Quantity Sold: " + totalQuantity + ", Revenue Generated: Rs." + totalRevenue);
-        }
-    }
-
-    private String[] getUniqueFoodItems() {
-        String[] foodItems = new String[salesData.length];
-        int count = 0;
-
-        for(SalesRecord record : salesData) {
-            boolean found = false;
-            for (int i = 0; i < count; i++) {
-                if(foodItems[i].equals(record.foodItem)) {
-                    found = true;
-                    break;
-                }
-            }
-
-            if(!found) {
-                foodItems[count++] = record.foodItem;
-            }
-        }
-
-        return Arrays.copyOf(foodItems, count);
+    void displayEmployeeDetails() {
+        System.out.println("Id: " + id);
+        System.out.println("Name: " + name);
+        address.getAddress();
+        System.out.println("Salary: " + String.format("%.0f", salary));
+        System.out.println("Designation: " + designation);
     }
 }
 
 public class Aggregation {
     public static void main(String[] args) {
-        SalesRecord[] salesData = {
-            new SalesRecord("New York", "Pizza", 30, 4500.0, new GregorianCalendar(2023, Calendar.JANUARY, 10).getTime()),
-            new SalesRecord("Los Angeles", "Burger", 20, 2000.0, new GregorianCalendar(2023, Calendar.JANUARY, 15).getTime()),
-            new SalesRecord("New York", "Pizza", 50, 7500.0, new GregorianCalendar(2023, Calendar.FEBRUARY, 10).getTime()),
-            new SalesRecord("Los Angeles", "Pizza", 25, 3705.0, new GregorianCalendar(2023, Calendar.JANUARY, 20).getTime()),
-            new SalesRecord("New York", "Burger", 40, 4000.0, new GregorianCalendar(2023, Calendar.MARCH, 5).getTime())
-        };
+        Address address = new Address("Gandhinagar", "Gujarat");
+        Employee dhruv = new Employee(421, "Dhruv Sharma", address, 10000000, "Senior Manager");
 
-        SalesAnalysis analysis = new SalesAnalysis(salesData);
-        analysis.aggregateTotalSalesByFoodItem();
-        // analysis.aggregateCityWiseSalesByFoodItem();
-        // analysis.aggregateMonthlyTrendsByFoodItem();
+        dhruv.displayEmployeeDetails();
     }
 }
+
+/*
+Tasks:
+
+--> Problem Statement 1: Sales Data Aggregation
+
+Context:
+You are working for a retail company that has multiple stores. Each store records its sales data, which includes the sales amount and the date of the sale. Your task is to write a Java program that aggregates the sales data to provide insights such as total sales, average sales per day, and total sales for each store.
+
+Requirements:
+1. Create a `Store` class that contains a list of `Sale` objects. Each `Sale` object should have attributes such as `date` (of type `LocalDate`) and `amount` (of type `double`).
+2. Write methods in the `Store` class to:
+   - Calculate the total sales for the store.
+   - Calculate the average sales per day for the store.
+   - Group sales data by month and calculate the total sales for each month.
+3. Write a `RetailCompany` class that contains a list of `Store` objects.
+4. Write methods in the `RetailCompany` class to:
+   - Calculate the total sales for the company.
+   - Calculate the average sales per store.
+   - Find the store with the highest total sales.
+
+Example Usage:
+
+Store store1 = new Store();
+store1.addSale(new Sale(LocalDate.of(2023, 1, 1), 100.0));
+store1.addSale(new Sale(LocalDate.of(2023, 1, 2), 150.0));
+
+Store store2 = new Store();
+store2.addSale(new Sale(LocalDate.of(2023, 1, 1), 200.0));
+store2.addSale(new Sale(LocalDate.of(2023, 1, 2), 250.0));
+
+RetailCompany company = new RetailCompany();
+company.addStore(store1);
+company.addStore(store2);
+
+System.out.println("Total sales for the company: " + company.getTotalSales());
+System.out.println("Average sales per store: " + company.getAverageSalesPerStore());
+System.out.println("Store with the highest sales: " + company.getTopStore().getTotalSales());
+
+
+--> Problem Statement 2: Student Grades Aggregation
+
+Context:
+You are developing a system for a school to manage students' grades. Each student can be enrolled in multiple courses, and each course has multiple grades recorded for the student. Your task is to write a Java program that aggregates the grades data to provide insights such as total grades, average grade, and highest grade for each student.
+
+Requirements:
+1. Create a `Course` class that contains a list of `Grade` objects. Each `Grade` object should have attributes such as `date` (of type `LocalDate`) and `score` (of type `double`).
+2. Write methods in the `Course` class to:
+   - Calculate the total grades for the course.
+   - Calculate the average grade for the course.
+   - Find the highest grade for the course.
+3. Create a `Student` class that contains a list of `Course` objects.
+4. Write methods in the `Student` class to:
+   - Calculate the total grades for the student across all courses.
+   - Calculate the average grade for the student across all courses.
+   - Find the course with the highest average grade.
+
+Example Usage:
+
+Course math = new Course();
+math.addGrade(new Grade(LocalDate.of(2023, 1, 1), 90.0));
+math.addGrade(new Grade(LocalDate.of(2023, 1, 2), 85.0));
+
+Course science = new Course();
+science.addGrade(new Grade(LocalDate.of(2023, 1, 1), 95.0));
+science.addGrade(new Grade(LocalDate.of(2023, 1, 2), 80.0));
+
+Student student = new Student();
+student.addCourse(math);
+student.addCourse(science);
+
+System.out.println("Total grades for the student: " + student.getTotalGrades());
+System.out.println("Average grade for the student: " + student.getAverageGrade());
+System.out.println("Course with the highest average grade: " + student.getTopCourse().getAverageGrade());
+
+
+
+*/
