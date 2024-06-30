@@ -27,36 +27,35 @@ public class MthdOverloading {
 /*
 Overloading: If multiple methods have the same name but different parameters (either in number, type, or both), this is known as method overloading.
 
-Tasks:
+1. Area Calculation:
+   Write a class `Shape` with overloaded methods `area()` to calculate the area of a circle (using radius), a rectangle (using length and breadth), and a triangle (using base and height).
 
-1. Problem: Create a class called `Calculator` that demonstrates method overloading for basic arithmetic operations (addition, subtraction, multiplication, and division).
-   - Example: Implement the `add`, `subtract`, `multiply`, and `divide` methods in the `Calculator` class, each overloaded with different parameter lists to perform the respective operations.
+2. Volume Calculation:
+   Create a class `Volume` with overloaded methods `calculate()` to compute the volume of a cube (using side length), a cylinder (using radius and height), and a rectangular prism (using length, width, and height).
 
-2. Problem: Design a simple shape hierarchy with classes like `Circle` and `Rectangle`. Implement method overloading to calculate the area of these shapes with different parameter lists.
-   - Example: Create a superclass `Shape` with overloaded `calculateArea` methods in subclasses like `Circle` and `Rectangle`.
+3. Simple Interest Calculation:
+   Develop a class `InterestCalculator` with overloaded methods `calculateInterest()` to determine the simple interest using principal, rate, and time provided in different formats (e.g., years, months, days).
 
-3. Problem: Develop a student grading system where you have different grading scales for different courses. Use method overloading to calculate the final grade based on the course's grading scale.
-   - Example: Create a `Student` class with overloaded `calculateFinalGrade` methods for each course, allowing custom grading logic.
+4. Temperature Conversion:
+   Implement a class `TemperatureConverter` with overloaded methods `convert()` to convert temperatures from Celsius to Fahrenheit, Fahrenheit to Celsius, and Celsius to Kelvin.
 
-4. Problem: Build a file manager application that handles various file operations like copying, moving, and deleting files. Use method overloading to implement these operations.
-   - Example: Create a `FileManager` class with overloaded methods for operations like `copyFile`, `moveFile`, and `deleteFile`.
+5. String Concatenation:
+   Write a class `Concatenator` with overloaded methods `concatenate()` to concatenate two strings, three strings, and four strings.
 
-5. Problem: Implement a banking system with multiple account types (savings, checking) and use method overloading to calculate interest based on different parameters.
-   - Example: Create an `Account` class with overloaded `calculateInterest` methods for different account types.
+6. Distance Calculation:
+   Create a class `DistanceCalculator` with overloaded methods `distance()` to calculate the distance between two points in a 2D plane (using two points), three points in a 3D space (using three points), and between two points on a number line.
 
-6. Problem: Develop a drawing application with different shapes (e.g., lines, circles, rectangles). Use method overloading to draw each shape based on its attributes.
-   - Example: Implement a `Draw` class with overloaded methods for drawing lines, circles, and rectangles, accepting different parameters for each shape.
+7. Max Value Finder:
+   Develop a class `MaxFinder` with overloaded methods `max()` to find the maximum value among two integers, three integers, and four integers.
 
-7. Problem: Create a simple game with different character classes (warrior, mage, archer). Use method overloading to define their unique abilities with different parameters.
-   - Example: Implement a `Character` class with overloaded methods for each character class (e.g., `Warrior`, `Mage`, `Archer`) with different parameters for their special abilities.
+8. GCD Calculation:
+   Write a class `GCD` with overloaded methods `calculateGCD()` to compute the greatest common divisor of two integers and three integers.
 
-8. Problem: Design a scheduling application that schedules events of various types (meetings, appointments, tasks). Use method overloading to add events to the schedule.
-   - Example: Implement a `Scheduler` class with overloaded `addEvent` methods for different event types, each with relevant parameters.
+9. String Repetition:
+   Implement a class `Repeater` with overloaded methods `repeat()` to repeat a string a specified number of times, concatenate the repeated string, and print it.
 
-9. Problem: Create a media player application that plays different media types (audio and video). Use method overloading to customize the playback behavior for each media type.
-   - Example: Implement a `MediaPlayer` class with overloaded methods for playing audio and video files.
-
-10. Problem: Build a restaurant menu system with various dishes and options. Use method overloading to add dishes to the menu with different customization levels.
-    - Example: Create a `Menu` class with overloaded methods to add dishes to the menu, allowing customization options for each dish.
+10. Geometry Perimeter Calculation:
+   Create a class `Perimeter` with overloaded methods `calculate()` to find the perimeter of a square (using side length), a rectangle (using length and breadth), and a triangle (using the lengths of its three sides).
+    
 */
 
